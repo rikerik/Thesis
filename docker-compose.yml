@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  # React Frontend
+  react-app:
+    build:
+      context: ./song-front
+    ports:
+      - "3000:80" # Exposes React app on port 3000
+    networks:
+      - spring-boot-network
+
+  # Spring Boot Backend
+  spring-app:
+    build:
+      context: ./song-back
+    ports:
+      - "8080:8080" # Exposes Spring Boot app on port 8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=123
+    depends_on:
+      - db
+    networks:
+      - spring-boot-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql # Mount the SQL dump to initialize the DB
+      - ./run-sql.sh:/docker-entrypoint-initdb.d/run-sql.sh # Mount the initialization script
+    ports:
+      - "5432:5432" # Expose PostgreSQL on port 5432
+    networks:
+      - spring-boot-network
+
+volumes:
+  postgres_data:
+
+networks:
+  spring-boot-network:
+    driver: bridge

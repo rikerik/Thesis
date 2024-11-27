@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-OnlineSongApplication<OnlineSong>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "Erik.OnlineSong.OnlineSongApplication",
+      "projectName": "OnlineSong",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

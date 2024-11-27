@@ -1,0 +1,162 @@
+/* Gradient text style */
+.gradient-text {
+    background: linear-gradient(to right, orange, lightblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 20px;
+    display: inline-block;
+    transition: transform 0.1s ease-in-out;
+}
+
+/* Circular logo style */
+.circular-logo {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+/* Navbar link size */
+.nav-link-large {
+    font-size: 1.2rem;
+}
+
+/* Navbar height adjustment */
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+/* Increase icon size */
+.nav-link-large .react-icons {
+    font-size: 1.5rem;
+}
+
+/* Centering the search bar */
+.navbar .mx-auto {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Search container */
+.search-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 20vh;
+}
+
+/* Search bar styles */
+.search-bar {
+    background-color: #494949;
+    border-radius: 30px;
+    padding: 8px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+}
+
+.search-bar:focus {
+    background-color: #555252;
+    outline: none;
+    color: #ffffff;
+    box-shadow: 0 0 10px #00000033;
+}
+
+/* Content positioning below navbar */
+.content-below-navbar {
+    margin-top: 6em;
+}
+
+/* Hover animation for gradient text */
+.gradient-text:hover {
+    animation: shake 0.5s ease-in-out;
+}
+
+/* Keyframes for shake animation */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-2px);
+    }
+
+    50% {
+        transform: translateX(2px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.navbar .btn-logout {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    margin-right: 15px;
+    margin-left: 15rem;
+
+}
+
+.nav-link-orange {
+    color: orange !important;
+    font-size: large !important;
+    transition: font-size 0.3s ease !important;
+}
+
+.nav-link-orange:hover {
+    color: darkorange !important;
+    font-size: xx-small !important;
+}
+
+.cordon-effect {
+    position: absolute;
+    top: 0;
+    /* Positioning at the top of the container */
+    left: 0;
+    right: 0;
+    height: 100%;
+    /* Full height of the search bar */
+    background: repeating-linear-gradient(45deg,
+            /* 45-degree angle */
+            rgba(255, 0, 0, 0.8),
+            /* Color of the line */
+            rgba(255, 0, 0, 0.8) 2px,
+            /* Width of the line */
+            transparent 2px,
+            /* Space between lines */
+            transparent 8px
+            /* Height of the space */
+        );
+    /* Repeating gradient for multiple lines */
+    pointer-events: none;
+    animation: vibrate 0.3s infinite alternate;
+    /* Animation for vibrating effect */
+}
+
+/* Keyframes for vibrating animation */
+@keyframes vibrate {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-3px);
+    }
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
